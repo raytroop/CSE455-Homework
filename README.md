@@ -2,7 +2,7 @@
 
 ---
 
-- [ ] [**Homework 0: Fun with color!**](./vision-hw0/README.md)
+- [x] [**Homework 0: Fun with color!**](./vision-hw0/README.md)
 - [ ] [**Homework 1: Resizing and convolutions**](./vision-hw1/README.md)
 - [ ] [**Homework 2: Panoramas!**](./vision-hw2/README.md)
 - [ ] [**Homework 3: Optical Flow**](./vision-hw3/README.md)
