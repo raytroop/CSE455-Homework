@@ -20,7 +20,7 @@ int same_image(image a, image b){
         return 0;
     }
     for(i = 0; i < a.w*a.h*a.c; ++i){
-        if(!within_eps(a.data[i], b.data[i])) 
+        if(!within_eps(a.data[i], b.data[i]))
         {
             printf("The value should be %f, but it is %f! \n", b.data[i], a.data[i]);
             return 0;
@@ -47,15 +47,15 @@ void test_get_pixel(){
 void test_set_pixel(){
     image gt = load_image("data/dots.png");
     image d = make_image(4,2,3);
-    set_pixel(d, 0,0,0,0); set_pixel(d, 0,0,1,0); set_pixel(d, 0,0,2,0); 
-    set_pixel(d, 1,0,0,1); set_pixel(d, 1,0,1,1); set_pixel(d, 1,0,2,1); 
-    set_pixel(d, 2,0,0,1); set_pixel(d, 2,0,1,0); set_pixel(d, 2,0,2,0); 
-    set_pixel(d, 3,0,0,1); set_pixel(d, 3,0,1,1); set_pixel(d, 3,0,2,0); 
+    set_pixel(d, 0,0,0,0); set_pixel(d, 0,0,1,0); set_pixel(d, 0,0,2,0);
+    set_pixel(d, 1,0,0,1); set_pixel(d, 1,0,1,1); set_pixel(d, 1,0,2,1);
+    set_pixel(d, 2,0,0,1); set_pixel(d, 2,0,1,0); set_pixel(d, 2,0,2,0);
+    set_pixel(d, 3,0,0,1); set_pixel(d, 3,0,1,1); set_pixel(d, 3,0,2,0);
 
-    set_pixel(d, 0,1,0,0); set_pixel(d, 0,1,1,1); set_pixel(d, 0,1,2,0); 
-    set_pixel(d, 1,1,0,0); set_pixel(d, 1,1,1,1); set_pixel(d, 1,1,2,1); 
-    set_pixel(d, 2,1,0,0); set_pixel(d, 2,1,1,0); set_pixel(d, 2,1,2,1); 
-    set_pixel(d, 3,1,0,1); set_pixel(d, 3,1,1,0); set_pixel(d, 3,1,2,1); 
+    set_pixel(d, 0,1,0,0); set_pixel(d, 0,1,1,1); set_pixel(d, 0,1,2,0);
+    set_pixel(d, 1,1,0,0); set_pixel(d, 1,1,1,1); set_pixel(d, 1,1,2,1);
+    set_pixel(d, 2,1,0,0); set_pixel(d, 2,1,1,0); set_pixel(d, 2,1,2,1);
+    set_pixel(d, 3,1,0,1); set_pixel(d, 3,1,1,0); set_pixel(d, 3,1,2,1);
 
     // Test images are same
     TEST(same_image(d, gt));
@@ -179,7 +179,7 @@ void test_highpass_filter(){
     image blur = convolve_image(im, f, 0);
     clamp_image(blur);
 
-    
+
     image gt = load_image("figs/dog-highpass.png");
     TEST(same_image(blur, gt));
     free_image(im);
@@ -194,7 +194,7 @@ void test_emboss_filter(){
     image blur = convolve_image(im, f, 1);
     clamp_image(blur);
 
-    
+
     image gt = load_image("figs/dog-emboss.png");
     TEST(same_image(blur, gt));
     free_image(im);
@@ -241,7 +241,7 @@ void test_gaussian_filter(){
     }
 
     image gt = load_image("figs/gaussian_filter_7.png");
-    TEST(same_image(f, gt));    
+    TEST(same_image(f, gt));
     free_image(f);
     free_image(gt);
 }
@@ -253,7 +253,7 @@ void test_gaussian_blur(){
     clamp_image(blur);
 
     image gt = load_image("figs/dog-gauss2.png");
-    TEST(same_image(blur, gt));    
+    TEST(same_image(blur, gt));
     free_image(im);
     free_image(f);
     free_image(blur);
@@ -312,14 +312,13 @@ void test_sobel(){
     image theta = res[1];
     feature_normalize(mag);
     feature_normalize(theta);
-
     image gt_mag = load_image("figs/magnitude.png");
     image gt_theta = load_image("figs/theta.png");
     TEST(gt_mag.w == mag.w && gt_theta.w == theta.w);
     TEST(gt_mag.h == mag.h && gt_theta.h == theta.h);
     TEST(gt_mag.c == mag.c && gt_theta.c == theta.c);
-    if( gt_mag.w != mag.w || gt_theta.w != theta.w || 
-        gt_mag.h != mag.h || gt_theta.h != theta.h || 
+    if( gt_mag.w != mag.w || gt_theta.w != theta.w ||
+        gt_mag.h != mag.h || gt_theta.h != theta.h ||
         gt_mag.c != mag.c || gt_theta.c != theta.c ) return;
     int i;
     for(i = 0; i < gt_mag.w*gt_mag.h; ++i){
