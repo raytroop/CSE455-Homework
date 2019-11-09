@@ -7,7 +7,7 @@ void del_arg(int argc, char **argv, int index)
 {
     int i;
     for(i = index; i < argc-1; ++i) argv[i] = argv[i+1];
-    argv[i] = 0;
+    argv[i] = 0;    // `i` always equals to `argc-1` here
 }
 
 int find_arg(int argc, char* argv[], char *arg)
