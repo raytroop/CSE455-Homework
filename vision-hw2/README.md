@@ -1,4 +1,4 @@
-![panorama of field](figs/field_panorama.jpg)
+![panorama of field](./figs/field_panorama.jpg)
 
 # CSE 455 Homework 2 #
 
@@ -78,7 +78,7 @@ After you complete this function you should be able to calculate corners and des
 
 This will detect corners using a Gaussian window of 2 sigma, a "cornerness" threshold of 100, and an nms distance of 3 (or window of 7x7). It should give you something like this:
 
-![rainier corners](figs/corners.jpg)
+![rainier corners](./figs/corners.jpg)
 
 Corners are marked with the crosses. They seem pretty sensible! Lots of corners near where snow meets rock and such. Try playing with the different values to see how the affect our corner detector.
 
@@ -112,7 +112,7 @@ Once this is done we can show the matches we discover between the images:
 
 Which gives you:
 
-![matches](figs/matches.jpg)
+![matches](./figs/matches.jpg)
 
 
 ## 3. Fitting our projection to the data ##
@@ -164,7 +164,7 @@ With all this working you should be able to create some basic panoramas:
     pan = panorama_image(im1, im2, thresh=50)
     save_image(pan, "easy_panorama")
 
-![panorama](figs/easy_panorama.jpg)
+![panorama](./figs/easy_panorama.jpg)
 
 Try out some of the other panorama creation in `trypanorama.py`. If you stitch together multiple images you should turn off the `if` statement in `panorama_image` that marks corners and draws inliers.
 
